@@ -19,9 +19,9 @@ public class AgendamentoController {
 	@Autowired
 	private AgendamentoDAO dao;
 	
-	 @GetMapping ("/agendamento")
+	 @PostMapping ("/agendamento")
 	 
-	public ResponseEntity<List<Agendamento>> getAgendamento () {
+	public ResponseEntity<List<Agendamento>> getAgendamento (@RequestBody Agendamento objeto) {
 		List <Agendamento> lista = (List <Agendamento>) dao.findAll();
 		if (lista.size()==0) {
 			return ResponseEntity.status(404).build();
